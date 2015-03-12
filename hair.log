@@ -1,0 +1,23 @@
+hair log
+- extrude 10 instead of 20, 8 treads
+	* good, as threads are spread apart, not tangling together or with the print head
+- extrude 10 and 8, 20 threads
+	* bad, threads don't get cut off from the print head, and get tangled together
+	* but the threads feel more like hair
+- tried two layers
+	* had the problem of print head going back tangling with existing hair
+-> tried reducing extruding amount from 10 to 5
+-> tried adding retraction amount from 1 to 3
+	* tangling seems better
+-> tried to do the go-around thing
+	* solves the tangling 
+-> randomly go out
+
+
+skirt
+cutter/cleaner
+style
+combine it with models
+thickness
+
+cross-printer
