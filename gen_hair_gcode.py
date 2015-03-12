@@ -80,10 +80,10 @@ def gcode_for_hair_position(x,y,z, hair_length, extrusion=20):
 
         ; 4. Go around
         G1 X{{x_out}}
-        G1 X{{x_outl}} Y{{y_outl}} E{{extrusion_amount}} F200
-        G1 X{{x_outl}} Y{{y_outh}} E{{extrusion_amount}} F200
-        G1 X{{x_outh}} Y{{y_outh}} E{{extrusion_amount}} F200
-        G1 X{{x_outh}} Y{{y_outl}} E{{extrusion_amount}} F200
+        ;G1 X{{x_outl}} Y{{y_outl}} E{{extrusion_amount}} F200
+        ;G1 X{{x_outl}} Y{{y_outh}} E{{extrusion_amount}} F200
+        ;G1 X{{x_outh}} Y{{y_outh}} E{{extrusion_amount}} F200
+        ;G1 X{{x_outh}} Y{{y_outl}} E{{extrusion_amount}} F200
         G1 Y{{y_pos}}
         ;////////////////////////////////////////////
     
