@@ -14,6 +14,16 @@ hair log
 -> randomly go out
 
 
+
+
+// for curliness
+-> decrease feed rate, slightly increase jerking dist, increase extrusion
+-> (jerking seems not working), back to old way, reso pi/4, 32/(2/0.25) = 4 periods, y_length/1.5 try using delay points 250 ms
+-> going to try back and forth circular spin
+
+
+
+
 skirt
 cutter/cleaner
 style
@@ -21,3 +31,5 @@ combine it with models
 thickness
 
 cross-printer
+
+
