@@ -59,20 +59,26 @@ LAYERTHICKNESS = 0.30
 
 # key variables
 num_threads = 8
-hair_length = 90
-extr_amount = 20
+hair_length = 70
+extr_amount = 15
 neg_extr_amount=extr_amount*0.6
 extruder_temp = 210
 num_layers = 1
-x_out = 5
+x_out = 10
 
-curl_reso = math.pi/4 #2 * math.pi / 18
-num_curls = 3
-curl_scale = 15
+curl_reso = 2 * math.pi / 6 # math.pi/4 #
+num_curls = 1
+curl_scale = 30
 
-do_scrapping = False
+do_scrapping = True
 
-def gcode_for_hair_position(x,y,z, hair_length, extrusion=20):
+# hair base dependent
+min_x = 41.0
+max_x = 59.0
+base_y = 90
+base_z = 1.85
+
+def gcode_for_hair_position(x,y,z, hair_length, extrusion):
     gcode_params = """
         ;////////////////////////////////////////////
         ; Point {{x_pos}},{{y_pos}}
@@ -83,11 +89,11 @@ def gcode_for_hair_position(x,y,z, hair_length, extrusion=20):
         G1 X{{x_pos}} Y{{y_pos}} ; Z{{z_pos}} 
 
         ; 2. Extrude
-        G1 E{{extrusion_amount}} F1000
+        G1 E{{extrusion_amount}} F2000
 
         ; 3. Move horizontally away
         {{style_by_x}}
-        G1 Y{{y_hair_pos}} F1023.895 
+        G1 X{{x_pos}} Y{{y_hair_pos}} F2000
         G1 F2000 E{{retraction_amount}} ; retract
 
         ; 4. Go around
@@ -118,78 +124,78 @@ def gcode_for_hair_position(x,y,z, hair_length, extrusion=20):
 #   curling by drawing sin function
 #
 ########################################################
-def gcode_for_curliness(x, y0, y1, curliness):
-    n = curliness
-    gcode_params = """;curly code starts
-    G92 E0
-    """
+# def gcode_for_curliness(x, y0, y1, curliness):
+#     n = curliness
+#     gcode_params = """;curly code starts
+#     G92 E0
+#     """
     
-    gcode_step_template = """G1 X{{x_pos}} Y{{y_pos}} E{{ext_amnt}}
-    """
-    y_step = (y1-y0) * 1.0 / n
-    for i in range(0, n):
-        x_curl_offset = curl_scale * math.sin(i * curl_reso)
-        x_next = x + x_curl_offset
-        y_next = y0 + y_step * i
-        gcode_step = gcode_step_template.replace('{{x_pos}}', str(x_next))
-        gcode_step = gcode_step.replace('{{y_pos}}', str(y_next))
-        gcode_step = gcode_step.replace('{{ext_amnt}}', str((i+1)/10))
-        gcode_params += gcode_step
+#     gcode_step_template = """G1 X{{x_pos}} Y{{y_pos}} E{{ext_amnt}}
+#     """
+#     y_step = (y1-y0) * 1.0 / n
+#     for i in range(0, n):
+#         x_curl_offset = curl_scale * math.sin(i * curl_reso)
+#         x_next = x + x_curl_offset
+#         y_next = y0 + y_step * i
+#         gcode_step = gcode_step_template.replace('{{x_pos}}', str(x_next))
+#         gcode_step = gcode_step.replace('{{y_pos}}', str(y_next))
+#         gcode_step = gcode_step.replace('{{ext_amnt}}', str((i+1)/10))
+#         gcode_params += gcode_step
 
-    gcode_params += """;curly code ends
-    """
-    return gcode_params
+#     gcode_params += """;curly code ends
+#     """
+#     return gcode_params
 
 ########################################################
 #
 #   curling by drawing circles
 #
 ########################################################
-# def gcode_for_curliness(x, y_start, y_end):
+def gcode_for_curliness(x, y_start, y_end):
     
-#     gcode_params = """~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#     ;curly code starts
-#     """
+    gcode_params = """~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    ;curly code starts
+    """
     
-#     gcode_step_template = """G1 X{{x_pos}} Y{{y_pos}}
-#     """
+    gcode_step_template = """G1 X{{x_pos}} Y{{y_pos}} F1000
+    """
     
-#     y_step = (y_end-y_start) * 1.0 / (num_curls)
-#     for i in range(0, num_curls):
+    y_step = (y_end-y_start) * 1.0 / (num_curls)
+    for i in range(0, num_curls):
 
-#         # go straight first
-#         gcode_params += """; go straight first
-#         """
-#         y = y_start + i * y_step
-#         gcode_step = gcode_step_template.replace('{{x_pos}}', str(x))
-#         gcode_step = gcode_step.replace('{{y_pos}}', str(y))
-#         gcode_params += gcode_step
+        # go straight first
+        gcode_params += """; go straight first
+        """
+        y = y_start + i * y_step
+        gcode_step = gcode_step_template.replace('{{x_pos}}', str(x))
+        gcode_step = gcode_step.replace('{{y_pos}}', str(y))
+        gcode_params += gcode_step
 
-#         # circling centroid
-#         x_ctr = x + curl_scale / 2
-#         y_ctr = y
+        # circling centroid
+        x_ctr = x + curl_scale / 2
+        y_ctr = y
 
-#         gcode_params += """; circling begins 
-#         """
+        gcode_params += """; circling begins 
+        """
 
-#         # stepping to form a circle
-#         num_seg = int(2 * math.pi / curl_reso)
-#         for j in range(0, num_seg):
-#             x_next = x_ctr - curl_scale/2 * math.cos(j*curl_reso)
-#             y_next = y_ctr - curl_scale/2 * math.sin(j*curl_reso)
+        # stepping to form a circle
+        num_seg = int(1.5 * math.pi / curl_reso)
+        for j in range(0, num_seg):
+            x_next = x_ctr + curl_scale/2 * math.sin(j*curl_reso)
+            y_next = y_ctr - curl_scale/2 * math.cos(j*curl_reso)
             
-#             gcode_step = gcode_step_template.replace('{{x_pos}}', str(x_next))
-#             gcode_step = gcode_step.replace('{{y_pos}}', str(y_next))
+            gcode_step = gcode_step_template.replace('{{x_pos}}', str(x_next))
+            gcode_step = gcode_step.replace('{{y_pos}}', str(y_next))
             
-#             gcode_params += gcode_step
+            gcode_params += gcode_step
 
-#         gcode_params += """; circling ends
-#         """
+        gcode_params += """; circling ends
+        """
 
-#     gcode_params += """;curly code ends
-#     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#     """
-#     return gcode_params
+    gcode_params += """;curly code ends
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    """
+    return gcode_params
 
 
 def surface_cutter_gcode():
@@ -228,12 +234,7 @@ def move_z_gcode(z):
     return gcode_params
 
 
-min_x = 41.0
-max_x = 59.0
-base_y = 90
-base_z = 1.85
-hair_gcode = """M300 S300 P3000
-            """;
+hair_gcode = '';
 thread_x = (max_x - min_x) / num_threads
 
 ########################################
@@ -271,8 +272,8 @@ for j in range(0, num_layers):
         x = min_x + x_delta + thread_x * i
         y = base_y
         thread_gcode = gcode_for_hair_position(x, y, z, curl_length, extr_amount)
-        curly_gcode = gcode_for_curliness(x, y - curl_length*0.2, y-curl_length*0.9, 32)
-        thread_gcode = thread_gcode.replace('{{style_by_x}}', curly_gcode)
+        # curly_gcode = gcode_for_curliness(x, y - curl_length*0.4, y-curl_length*0.9)
+        # thread_gcode = thread_gcode.replace('{{style_by_x}}', curly_gcode)
         hair_gcode += thread_gcode
         # extr_amount += 
     

@@ -14,8 +14,6 @@ hair log
 -> randomly go out
 
 
-
-
 // for curliness
 -> decrease feed rate, slightly increase jerking dist, increase extrusion
 -> (jerking seems not working), back to old way, reso pi/4, 32/(2/0.25) = 4 periods, y_length/1.5 try using delay points 250 ms
@@ -31,5 +29,27 @@ combine it with models
 thickness
 
 cross-printer
+
+
+
+-> don't add the curly code; just use go around to create curliness
+-> add scrapping
+-> do a slightly different circle
+-> circle faster, larger radius
+-> larger radius, 0.75 circle extrude less
+-> slower feedrate, scapping back on
+-> no, higher feedrate
+-> circle towards the end?
+-> [sanity check] back to normal
+
+-> add curly function; lower feed rate, extrude a little
+
+------------------------------------------
+
+-> add mid point, dwell before scrapping
+-> make end point on scrapper, pause longer
+
+-> retract more
+
 
 
