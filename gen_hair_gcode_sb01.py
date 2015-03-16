@@ -1,4 +1,10 @@
 #!/usr/bin/python
+
+################################################################################
+#
+#   This version explores simple curliness
+#
+################################################################################
 import random
 
 '''
@@ -81,6 +87,8 @@ def gcode_for_hair_position(x,y,z, hair_length, extrusion=20):
         G1 X{{x_out}} Y{{y_pos}}
         G4 P2000
         G1 F2000 E{{retraction_amount}} ; retract
+        G1 40
+        G1 F2000 E{{extrusion_amount}} ; compensate
         
         ; 5. Clear Extruder
 
@@ -106,7 +114,7 @@ def surface_cutter_gcode():
     G92 E0 ; reset extrusion distance
     G1 X29.4 Y90.4 F7800
     G92 E0 ; reset extrusion distance
-    G1 F2000 E{{extrusion_compensation}} ; extrusion compensation
+    ;G1 F2000 E{{extrusion_compensation}} ; extrusion compensation
     G92 E0 ; reset extrusion distance
     G1 E1 F1800
     G1 X10.6 Y90.4 E1.93794 F600
@@ -123,7 +131,7 @@ def surface_cutter_gcode():
     G1 X10.8 Y90 E5.62254 F600
     G1 E4.62254 F1800
     '''
-    gcode_params = gcode_params.replace('{{extrusion_compensation}}',str(extr_amount-neg_extr_amount))
+    gcode_params = gcode_params.replace('{{extrusion_compensation}}',str(neg_extr_amount))
     return gcode_params
 
 start_points = []
@@ -139,7 +147,7 @@ def move_z_gcode(z):
 min_x = 41.0
 max_x = 59.0
 base_y = 90
-base_z = 3.250
+base_z = 1.85
 hair_gcode = ''
 thread_x = (max_x - min_x) / num_threads
 
