@@ -13,7 +13,7 @@ LAYERTHICKNESS = 0.30
 
 # key variables
 num_threads = 8
-hair_length = 90
+hair_length = 40 # 90
 extr_amount = 5
 neg_extr_amount = extr_amount*0.2 # 0.4
 extruder_temp = 205 # 210
@@ -34,7 +34,7 @@ def gcode_for_hair_position(x,y,z, hair_length, extrusion=20):
         G1 E{{extrusion_amount}} F2000
 
         ; 3. Move horizontally away
-        G1 Y{{y_hair_pos}} E{{retraction_amount}}  F1023.895 ; extrend and retract
+        G1 Y{{y_hair_pos}} E{{retraction_amount}}  F1023.895 ; extend and retract
         ; G1 F2000 E{{retraction_amount}} ; retract
 
         ; 4. Go around
@@ -53,7 +53,7 @@ def gcode_for_hair_position(x,y,z, hair_length, extrusion=20):
     gcode_params = gcode_params.replace('{{x_pos}}',str(x))
     gcode_params = gcode_params.replace('{{y_pos}}',str(y))
     gcode_params = gcode_params.replace('{{z_pos}}',str(z))
-    gcode_params = gcode_params.replace('{{y_hair_pos}}',str(y-hair_length))
+    gcode_params = gcode_params.replace('{{y_hair_pos}}',str(max(y-hair_length,0)))
     gcode_params = gcode_params.replace('{{x_out}}',str(x_out))
     gcode_params = gcode_params.replace('{{y_pos_scrapper}}',str(95))
     gcode_params = gcode_params.replace('{{extrusion_amount}}',str(extrusion))
