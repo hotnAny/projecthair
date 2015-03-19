@@ -7,6 +7,7 @@
 
 import random
 import re
+import numpy as np
 
 # device-dependent constants
 LAYERTHICKNESS = 0.30
@@ -169,17 +170,38 @@ for k in hair_layers:
     # Find perimeter points
     gcode_in_between = find_between(gcode, current_layer, next_layer)
     layer_gcode = gcode_in_between.split("\n")
+    
+    # find pairs, and interpolate
+    point_pair = []
     for l in layer_gcode:
         if "; perimeter" in l:
             matches = re.match("G1 X([0-9\.]+) Y([0-9\.]+)", l)
             px = float(matches.group(1))
             py = float(matches.group(2))
-            if (px >= min_x and px <= max_x):
-                if (current_layer not in PERIMETER_FOR_LAYER):
-                    PERIMETER_FOR_LAYER[current_layer] = {}
-                if (px not in PERIMETER_FOR_LAYER[current_layer]):
-                    PERIMETER_FOR_LAYER[current_layer][px] = []
-                PERIMETER_FOR_LAYER[current_layer][px].append(py)
+            if(len(point_pair)<2):
+                point_pair.append((px,py))
+            
+            if (len(point_pair)==2):
+                # Find slope
+                x1,y1 = point_pair[0]
+                x2,y2 = point_pair[1]
+                m = (y2-y1)/(x2-x1)
+                xpoints = np.arange(x1,x2,0.4)
+                # print "interpolate: %f,%f    %f,%f     slope: %0.4f" % (x1,y1,x2,y2, m)
+                # print "xpoints", xpoints
+                for _x in xpoints:  
+                    if (_x >= min_x and _x <= max_x):
+                        if (current_layer not in PERIMETER_FOR_LAYER):
+                            PERIMETER_FOR_LAYER[current_layer] = {}
+                        if (_x not in PERIMETER_FOR_LAYER[current_layer]):
+                            PERIMETER_FOR_LAYER[current_layer][_x] = []
+                        _y = m*(_x-x1) + y1
+                        # print "x: %0.4f, y: %0.4f" % (_x,_y)
+                        # raw_input()
+                        PERIMETER_FOR_LAYER[current_layer][_x].append(_y)
+                # Clear
+                point_pair = []
+                        
                 #print px,py
                 #raw_input();
     
@@ -189,7 +211,7 @@ for k in hair_layers:
         #max_y = PERIMETER_FOR_LAYER[current_layer][_x]
         PERIMETER_FOR_LAYER[current_layer][_x] = max_y
 
-''''
+'''
 for k in hair_layers:
     layer =  layers[k]
     print "Layer %d (%d points)" % (k, len(PERIMETER_FOR_LAYER[layer]))
