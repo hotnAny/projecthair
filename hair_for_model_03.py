@@ -14,9 +14,9 @@ LAYERTHICKNESS = 0.30
 
 # key variables
 num_threads = 8
-hair_length = 50 # 90
+hair_length = 90 # 90
 extr_amount = 5
-neg_extr_amount = extr_amount*0.6 # 0.4
+neg_extr_amount = extr_amount*0.4 # 0.4
 extruder_temp = 210 # 210 # 210
 num_layers = 10
 x_out = 0
@@ -40,9 +40,9 @@ def gcode_for_hair_position(x,y,z, hair_length, extrusion=20):
 
         ; 4. Go around
         ; ToDo: Find tangent line and extend out towards orthogonal angle
-        G1 X{{x_out}} F2000
-        G1 Y{{y_pos_scrapper}} F2000
-        G1 X{{x_pos}} F2000; cut
+        G1 X{{x_out}} F7800
+        G1 Y{{y_pos_scrapper}} F7800
+        G1 X{{x_pos}} F7800; cut
         
         G92 E0 ; reset extrusion distance
         G1 F2000 E{{retraction_compensation}} ; compensate
@@ -137,8 +137,8 @@ def find_closest_perimeter_point_for_x(layer_id, _x):
             diff_key = px
     return PERIMETER_FOR_LAYER[layer_id][diff_key]
     
-min_x = 35.0
-max_x = 65.0
+min_x = 41.0 # Goatie: 35 -> 65, Troll Hair: 41 -> 61
+max_x = 59.0
 base_y = 70 #90
 base_z =  0.95 #1.85 #3.250
 hair_gcode = ''
@@ -147,13 +147,13 @@ thread_x = (max_x - min_x) / num_threads
 ###############
 # Configure
 ###############
-hair_layers = range(15,40) # 1,21
+hair_layers = range(5,28) # 1,28 # Beard: 15,40, Hair: 1,21
 
 ##############################
 # 1. Load Model GCode
 ##############################
 # Find the beginning of each layer. For each layer, insert hair code
-gcode = open('models/troll_flathead_goatie.gcode','r').read()
+gcode = open('models/troll_flathead_noskirt.gcode','r').read()
 layers = re.findall('(G1 Z[0-9\.]+ F7800.000 ; move to next layer \([0-9]+\))',gcode)
 
 
@@ -185,7 +185,11 @@ for k in hair_layers:
                 # Find slope
                 x1,y1 = point_pair[0]
                 x2,y2 = point_pair[1]
-                m = (y2-y1)/(x2-x1)
+                try:
+                    m = (y2-y1)/(x2-x1)
+                except ZeroDivisionError:
+                    pass
+                    
                 xpoints = np.arange(x1,x2,0.4)
                 # print "interpolate: %f,%f    %f,%f     slope: %0.4f" % (x1,y1,x2,y2, m)
                 # print "xpoints", xpoints

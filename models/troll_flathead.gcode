@@ -7,10 +7,10 @@
 ; top infill extrusion width = 0.72mm
 
 M107 ; disable fan
-M104 S230 ; set temperature
+M104 S215 ; set temperature // Blonde = 210, Silver = 215
 G28 ; home all axes
 G1 Z5 F5000 ; lift nozzle
-M109 S230 ; wait for temperature to be reached
+M109 S215 ; wait for temperature to be reached
 G21 ; set units to millimeters
 G90 ; use absolute coordinates
 M82 ; use absolute distances for extrusion
@@ -495,7 +495,7 @@ G1 X55.596 Y60.923 F7800.000 ; move to first infill point
 G1 X44.404 Y60.923 E86.56149 F1080.000 ; infill
 G1 X48.730 Y60.294 F7800.000 ; move to first infill point
 G1 X51.212 Y60.294 E86.78868 F1080.000 ; infill
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 E85.78868 F1800.00000 ; retract
 G92 E0 ; reset extrusion distance
 G1 Z0.650 F7800.000 ; move to next layer (1)
@@ -4006,11 +4006,11 @@ G1 X32.288 Y66.579 E15.94544 ; perimeter
 G1 X32.311 Y66.181 E15.97799 ; perimeter
 G1 X31.781 Y66.032 F7800.000 ; move to first perimeter point
 G1 X31.787 Y65.984 E15.98064 F747.245 ; perimeter
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X31.809 Y65.829 E15.99335 F3600.000 ; perimeter
 G1 X31.892 Y65.645 E16.00990 ; perimeter
 G1 X32.071 Y65.385 E16.03568 ; perimeter
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X32.120 Y65.315 E16.04029 F747.245 ; perimeter
 G1 X32.487 Y64.960 E16.06805 ; perimeter
 G1 X32.993 Y64.635 E16.10073 ; perimeter
@@ -4054,11 +4054,11 @@ G1 X66.070 Y64.245 E18.12004 ; perimeter
 G1 X67.005 Y64.634 E18.17509 ; perimeter
 G1 X67.514 Y64.961 E18.20796 ; perimeter
 G1 X67.917 Y65.364 E18.23892 ; perimeter
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X68.106 Y65.640 E18.26625 F3600.000 ; perimeter
 G1 X68.191 Y65.829 E18.28317 ; perimeter
 G1 X68.213 Y65.984 E18.29588 ; perimeter
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X68.248 Y66.241 E18.30999 F747.245 ; perimeter
 G1 X68.258 Y66.598 E18.32942 ; perimeter
 G1 X68.181 Y67.358 E18.37090 ; perimeter
@@ -5131,7 +5131,7 @@ G1 X68.307 Y64.971 E21.63108 ; perimeter
 G1 X68.528 Y65.265 E21.65106 ; perimeter
 G1 X68.482 Y65.516 F7800.000 ; move inwards before travel
 G1 X61.244 Y68.569 F7800.000 ; move to first infill point
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X66.500 Y68.569 E22.08126 F3600.000 ; infill
 G1 X66.789 Y68.018 E22.13213 ; infill
 G1 X61.136 Y68.018 E22.59479 ; infill
@@ -5139,9 +5139,9 @@ G1 X60.819 Y67.467 E22.64681 ; infill
 G1 X67.018 Y67.467 E23.15425 ; infill
 G1 X67.199 Y66.917 E23.20167 ; infill
 G1 X60.007 Y66.917 E23.79033 ; infill
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X58.654 Y66.917 F7800.000 ; move to first infill point
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X56.523 Y66.917 E23.96472 F3600.000 ; infill
 G1 X56.415 Y66.366 E24.01065 ; infill
 G1 X67.231 Y66.366 E24.89597 ; infill
@@ -5165,19 +5165,19 @@ G1 X60.079 Y61.410 E30.16182 ; infill
 G1 X55.440 Y61.410 E30.54152 ; infill
 G1 X55.331 Y60.859 E30.58745 ; infill
 G1 X59.215 Y60.859 E30.90534 ; infill
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X57.998 Y60.309 F7800.000 ; move to first infill point
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X55.223 Y60.309 E31.13249 F3600.000 ; infill
 G1 X55.135 Y59.758 E31.17813 ; infill
 G1 X55.629 Y59.758 E31.21859 ; infill
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X56.632 Y67.467 F7800.000 ; move to first infill point
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X57.553 Y67.467 E31.29397 F3600.000 ; infill
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X61.204 Y69.119 F7800.000 ; move to first infill point
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X66.193 Y69.119 E31.70233 F3600.000 ; infill
 G1 X65.886 Y69.670 E31.75394 ; infill
 G1 X60.544 Y69.670 E32.19120 ; infill
@@ -5207,7 +5207,7 @@ G1 X61.651 Y76.278 E36.57464 ; infill
 G1 X60.687 Y76.278 E36.65349 ; infill
 G1 X61.018 Y76.829 E36.70606 ; infill
 G1 X61.394 Y76.829 E36.73682 ; infill
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X58.227 Y71.104 F7800.000 ; move to first infill point
 G1 X41.763 Y71.104 E38.08077 F2589.679 ; infill
 G1 X41.988 Y72.413 F7800.000 ; move to first infill point
@@ -5245,15 +5245,15 @@ G1 X59.147 Y67.177 E56.85496 F2589.679 ; infill
 G1 X56.567 Y68.486 E57.09108 ; infill
 G1 X43.433 Y68.486 E58.16329 ; infill
 G1 X43.368 Y67.467 F7800.000 ; move to first infill point
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X40.895 Y67.467 E58.36567 F3600.000 ; infill
 G1 X41.630 Y68.018 E58.44078 ; infill
 G1 X43.260 Y68.018 E58.57420 ; infill
 G1 X43.152 Y68.568 E58.62013 ; infill
 G1 X42.364 Y68.568 E58.68460 ; infill
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X38.756 Y68.568 F7800.000 ; move to first infill point
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X33.498 Y68.568 E59.11490 F3600.000 ; infill
 G1 X33.211 Y68.018 E59.16571 ; infill
 G1 X38.864 Y68.018 E59.62834 ; infill
@@ -5283,15 +5283,15 @@ G1 X39.924 Y61.410 E67.28475 ; infill
 G1 X44.560 Y61.410 E67.66420 ; infill
 G1 X44.669 Y60.859 E67.71013 ; infill
 G1 X40.783 Y60.859 E68.02816 ; infill
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X41.981 Y60.309 F7800.000 ; move to first infill point
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X44.777 Y60.309 E68.25699 F3600.000 ; infill
 G1 X44.371 Y59.758 E68.31300 ; infill
 G1 X44.865 Y59.758 E68.35345 ; infill
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X38.796 Y69.119 F7800.000 ; move to first infill point
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X33.802 Y69.119 E68.76211 F3600.000 ; infill
 G1 X34.107 Y69.670 E68.81360 ; infill
 G1 X39.454 Y69.670 E69.25120 ; infill
@@ -5321,7 +5321,7 @@ G1 X38.348 Y76.277 E73.63160 ; infill
 G1 X39.313 Y76.277 E73.71057 ; infill
 G1 X38.983 Y76.828 E73.76313 ; infill
 G1 X38.607 Y76.828 E73.79388 ; infill
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 E72.79388 F1800.00000 ; retract
 G92 E0 ; reset extrusion distance
 G1 Z4.850 F7800.000 ; move to next layer (15)
@@ -6035,7 +6035,7 @@ G1 X68.321 Y65.110 E21.56746 ; perimeter
 G1 X68.533 Y65.416 E21.58773 ; perimeter
 G1 X68.473 Y65.675 F7800.000 ; move inwards before travel
 G1 X61.112 Y69.088 F7800.000 ; move to first infill point
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X60.733 Y69.088 E21.62337 F3600.000 ; infill
 G1 X60.191 Y69.675 E21.69845 ; infill
 G1 X61.382 Y69.675 E21.81039 ; infill
@@ -6047,13 +6047,13 @@ G1 X61.166 Y71.434 E22.48956 ; infill
 G1 X58.679 Y71.434 E22.72340 ; infill
 G1 X59.313 Y72.021 E22.80461 ; infill
 G1 X60.463 Y72.021 E22.91272 ; infill
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X60.613 Y72.607 F7800.000 ; move to first infill point
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X59.948 Y72.607 E22.97525 F3600.000 ; infill
 G1 X60.582 Y73.194 E23.05646 ; infill
 G1 X60.965 Y73.194 E23.09244 ; infill
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X62.435 Y74.323 F7800.000 ; move to first infill point
 G1 X61.998 Y74.323 E23.12886 F2434.399 ; infill
 G1 X61.597 Y73.656 E23.19369 ; infill
@@ -6129,7 +6129,7 @@ G1 X60.904 Y77.649 E54.14640 ; infill
 G1 X60.048 Y78.958 E54.27409 ; infill
 G1 X39.952 Y78.958 E55.91456 ; infill
 G1 X38.666 Y75.813 F7800.000 ; move to first infill point
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X38.204 Y75.813 E55.96887 F3600.000 ; infill
 G1 X37.923 Y75.163 E56.05211 ; infill
 G1 X39.377 Y75.163 E56.22307 ; infill
@@ -6139,9 +6139,9 @@ G1 X38.633 Y73.863 E56.52185 ; infill
 G1 X39.377 Y73.863 E56.60925 ; infill
 G1 X39.024 Y73.213 E56.69622 ; infill
 G1 X39.377 Y73.213 E56.73775 ; infill
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X39.035 Y73.194 F7800.000 ; move to first infill point
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X39.418 Y73.194 E56.77373 F3600.000 ; infill
 G1 X39.387 Y72.607 E56.82894 ; infill
 G1 X40.052 Y72.607 E56.89146 ; infill
@@ -6157,7 +6157,7 @@ G1 X39.809 Y69.675 E58.05640 ; infill
 G1 X38.618 Y69.675 E58.16833 ; infill
 G1 X38.888 Y69.088 E58.22900 ; infill
 G1 X39.267 Y69.088 E58.26465 ; infill
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X39.053 Y67.580 F7800.000 ; move to first infill point
 G1 X32.854 Y67.580 E58.78618 F2434.399 ; infill
 G1 X33.053 Y68.255 E58.84534 ; infill
@@ -6203,19 +6203,19 @@ G1 X43.445 Y60.836 E68.30002 ; infill
 G1 X42.590 Y60.161 E68.39163 ; infill
 G1 X43.071 Y60.161 E68.43211 ; infill
 G1 X44.837 Y63.405 F7800.000 ; move to first infill point
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X44.464 Y63.405 E68.50389 F3600.000 ; infill
 G1 X44.323 Y64.223 E68.66337 ; infill
 G1 X44.686 Y64.223 E68.73316 ; infill
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X59.212 Y67.166 F7800.000 ; move to first infill point
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X59.590 Y67.166 E68.76398 F3600.000 ; infill
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X61.724 Y75.048 F7800.000 ; move to first infill point
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X62.078 Y75.048 E68.79282 F3600.000 ; infill
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 E67.79282 F1800.00000 ; retract
 G92 E0 ; reset extrusion distance
 G1 Z5.450 F7800.000 ; move to next layer (17)
@@ -10853,13 +10853,13 @@ G1 X64.036 Y70.594 E18.76798 ; perimeter
 G1 X63.980 Y70.891 E18.78439 ; perimeter
 G1 X63.490 Y71.119 F7800.000 ; move inwards before travel
 G1 X56.693 Y68.749 F7800.000 ; move to first infill point
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X56.257 Y68.749 E18.82427 F3600.000 ; infill
 G1 X56.307 Y68.170 E18.87737 ; infill
 G1 X53.941 Y68.170 E19.09359 ; infill
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X51.625 Y67.591 F7800.000 ; move to first infill point
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X55.921 Y67.591 E19.48615 F3600.000 ; infill
 G1 X55.535 Y67.012 E19.54973 ; infill
 G1 X49.309 Y67.012 E20.11862 ; infill
@@ -10867,37 +10867,37 @@ G1 X48.970 Y66.433 E20.17991 ; infill
 G1 X55.149 Y66.433 E20.74447 ; infill
 G1 X54.763 Y65.854 E20.80805 ; infill
 G1 X49.549 Y65.854 E21.28444 ; infill
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X50.031 Y65.275 F7800.000 ; move to first infill point
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X54.377 Y65.275 E21.68155 F3600.000 ; infill
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X55.299 Y63.538 F7800.000 ; move to first infill point
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X44.701 Y63.538 E22.64998 F3600.000 ; infill
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X46.481 Y64.117 F7800.000 ; move to first infill point
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X53.605 Y64.117 E23.30090 F3600.000 ; infill
 G1 X53.991 Y64.696 E23.36448 ; infill
 G1 X48.343 Y64.696 E23.88055 ; infill
 G1 X48.073 Y65.275 E23.93890 ; infill
 G1 X48.772 Y65.275 E24.00273 ; infill
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X49.771 Y60.643 F7800.000 ; move to first infill point
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X41.933 Y60.643 E24.71888 F3600.000 ; infill
 G1 X42.486 Y60.064 E24.79202 ; infill
 G1 X48.641 Y60.064 E25.35445 ; infill
 G1 X47.675 Y59.485 E25.45740 ; infill
 G1 X43.152 Y59.485 E25.87064 ; infill
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X45.004 Y58.906 F7800.000 ; move to first infill point
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X45.829 Y58.906 E25.94610 F3600.000 ; infill
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X50.229 Y60.643 F7800.000 ; move to first infill point
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X58.067 Y60.643 E26.66224 F3600.000 ; infill
 G1 X58.545 Y61.222 E26.73085 ; infill
 G1 X41.460 Y61.222 E28.29191 ; infill
@@ -10907,17 +10907,17 @@ G1 X57.522 Y62.380 E30.03398 ; infill
 G1 X42.478 Y62.380 E31.40857 ; infill
 G1 X43.576 Y62.959 E31.52199 ; infill
 G1 X56.424 Y62.959 E32.69593 ; infill
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X55.095 Y58.906 F7800.000 ; move to first infill point
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X54.231 Y58.906 E32.77487 F3600.000 ; infill
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X52.325 Y59.485 F7800.000 ; move to first infill point
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X56.848 Y59.485 E33.18811 F3600.000 ; infill
 G1 X57.514 Y60.064 E33.26875 ; infill
 G1 X51.359 Y60.064 E33.83118 ; infill
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X48.996 Y65.868 F7800.000 ; move to first infill point
 G1 X48.574 Y65.868 E33.86568 F1994.635 ; infill
 G1 X47.796 Y67.177 E33.98998 ; infill
@@ -11230,11 +11230,11 @@ G1 X63.997 Y70.513 E18.72433 ; perimeter
 G1 X63.930 Y70.882 E18.74468 ; perimeter
 G1 X63.440 Y71.106 F7800.000 ; move inwards before travel
 G1 X62.321 Y70.064 F7800.000 ; move to first infill point
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X62.321 Y69.161 E18.82182 F3600.000 ; infill
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X61.760 Y67.385 F7800.000 ; move to first infill point
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X61.760 Y72.272 E19.23952 F3600.000 ; infill
 G1 X61.198 Y72.155 E19.28855 ; infill
 G1 X61.198 Y66.696 E19.75517 ; infill
@@ -11242,9 +11242,9 @@ G1 X60.637 Y66.026 E19.82991 ; infill
 G1 X60.637 Y72.087 E20.34795 ; infill
 G1 X60.075 Y72.375 E20.40192 ; infill
 G1 X60.075 Y65.196 E21.01555 ; infill
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X59.513 Y63.633 F7800.000 ; move to first infill point
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X59.513 Y72.664 E21.78743 F3600.000 ; infill
 G1 X58.952 Y72.952 E21.84140 ; infill
 G1 X58.952 Y62.069 E22.77164 ; infill
@@ -11254,9 +11254,9 @@ G1 X57.828 Y73.411 E23.80567 ; infill
 G1 X57.828 Y62.661 E24.72448 ; infill
 G1 X57.267 Y62.958 E24.77875 ; infill
 G1 X57.267 Y68.914 E25.28791 ; infill
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X57.267 Y69.429 F7800.000 ; move to first infill point
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X57.267 Y72.571 E25.55647 F3600.000 ; infill
 G1 X56.705 Y73.325 E25.63684 ; infill
 G1 X56.705 Y69.288 E25.98186 ; infill
@@ -11266,9 +11266,9 @@ G1 X55.582 Y73.329 E26.53571 ; infill
 G1 X55.582 Y69.007 E26.90509 ; infill
 G1 X55.020 Y68.867 E26.95458 ; infill
 G1 X55.020 Y71.128 E27.14780 ; infill
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X56.705 Y68.072 F7800.000 ; move to first infill point
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X56.705 Y63.254 E27.55964 F3600.000 ; infill
 G1 X56.143 Y63.550 E27.61391 ; infill
 G1 X56.143 Y67.229 E27.92842 ; infill
@@ -11278,17 +11278,17 @@ G1 X55.020 Y64.102 E28.28570 ; infill
 G1 X55.020 Y65.544 E28.40897 ; infill
 G1 X54.458 Y64.702 E28.49552 ; infill
 G1 X54.458 Y64.315 E28.52857 ; infill
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X52.238 Y68.544 F7800.000 ; move to first infill point
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X52.238 Y68.172 E28.59062 F3600.000 ; infill
 G1 X51.474 Y67.981 E28.72179 ; infill
 G1 X51.474 Y68.894 E28.87389 ; infill
 G1 X50.710 Y68.174 E29.04873 ; infill
 G1 X50.710 Y67.810 E29.10931 ; infill
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X46.346 Y64.896 F7800.000 ; move to first infill point
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X46.346 Y64.511 E29.14420 F3600.000 ; infill
 G1 X45.769 Y64.371 E29.19813 ; infill
 G1 X45.769 Y65.673 E29.31635 ; infill
@@ -11300,9 +11300,9 @@ G1 X44.037 Y67.133 E29.96931 ; infill
 G1 X44.037 Y63.645 E30.28590 ; infill
 G1 X43.460 Y63.341 E30.34513 ; infill
 G1 X43.460 Y68.362 E30.80088 ; infill
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X42.883 Y70.624 F7800.000 ; move to first infill point
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X42.883 Y63.036 E31.48961 F3600.000 ; infill
 G1 X42.305 Y62.732 E31.54884 ; infill
 G1 X42.305 Y72.886 E32.47054 ; infill
@@ -11312,9 +11312,9 @@ G1 X41.151 Y62.123 E33.58123 ; infill
 G1 X41.151 Y73.005 E34.56891 ; infill
 G1 X40.574 Y72.708 E34.62781 ; infill
 G1 X40.574 Y63.357 E35.47657 ; infill
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X39.996 Y65.084 F7800.000 ; move to first infill point
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X39.996 Y72.412 E36.14168 F3600.000 ; infill
 G1 X39.419 Y72.115 E36.20058 ; infill
 G1 X39.419 Y65.950 E36.76022 ; infill
@@ -11322,11 +11322,11 @@ G1 X38.842 Y66.645 E36.84224 ; infill
 G1 X38.842 Y71.819 E37.31186 ; infill
 G1 X38.265 Y71.522 E37.37076 ; infill
 G1 X38.265 Y67.431 E37.74213 ; infill
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X37.687 Y69.096 F7800.000 ; move to first infill point
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X37.687 Y70.021 E37.82604 F3600.000 ; infill
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X38.733 Y72.092 F7800.000 ; move to first infill point
 G1 X38.733 Y73.417 E37.93415 F2205.896 ; infill
 G1 X40.042 Y76.126 F7800.000 ; move to first infill point
@@ -14722,7 +14722,7 @@ G1 E0.93306 F1800.00000 ; retract
 G92 E0 ; reset extrusion distance
 G1 X50.262 Y63.096 F7800.000 ; move to first infill point
 G1 E1.00000 F1800.00000 ; unretract
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X49.738 Y63.096 E1.04522 F3600.000 ; infill
 G1 X49.626 Y63.660 E1.09483 ; infill
 G1 X50.374 Y63.660 E1.15940 ; infill
@@ -14730,17 +14730,17 @@ G1 X50.702 Y64.224 E1.21569 ; infill
 G1 X49.298 Y64.224 E1.33688 ; infill
 G1 X48.520 Y64.788 E1.41978 ; infill
 G1 X51.480 Y64.788 E1.67522 ; infill
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X53.792 Y64.788 F7800.000 ; move to first infill point
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X56.327 Y64.788 E1.89394 F3600.000 ; infill
 G1 X56.029 Y64.224 E1.94900 ; infill
 G1 X54.258 Y64.224 E2.10173 ; infill
 G1 X54.728 Y63.660 E2.16502 ; infill
 G1 X55.609 Y63.660 E2.24104 ; infill
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X57.183 Y65.352 F7800.000 ; move to first infill point
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X42.817 Y65.352 E3.48033 F3600.000 ; infill
 G1 X43.673 Y64.788 E3.56871 ; infill
 G1 X46.208 Y64.788 E3.78744 ; infill
@@ -14748,9 +14748,9 @@ G1 X45.742 Y64.224 E3.85058 ; infill
 G1 X43.971 Y64.224 E4.00331 ; infill
 G1 X44.391 Y63.660 E4.06397 ; infill
 G1 X45.272 Y63.660 E4.14000 ; infill
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X40.246 Y65.916 F7800.000 ; move to first infill point
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X59.754 Y65.916 E5.82304 F3600.000 ; infill
 G1 X60.369 Y66.480 E5.89503 ; infill
 G1 X39.631 Y66.480 E7.68420 ; infill
@@ -14772,41 +14772,41 @@ G1 X62.049 Y70.992 E19.73462 ; infill
 G1 X55.219 Y70.992 E20.32386 ; infill
 G1 X54.944 Y70.428 E20.37798 ; infill
 G1 X52.859 Y70.428 E20.55788 ; infill
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X54.659 Y69.864 F7800.000 ; move to first infill point
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X45.341 Y69.864 E21.36181 F3600.000 ; infill
 G1 X45.055 Y70.428 E21.41633 ; infill
 G1 X47.141 Y70.428 E21.59622 ; infill
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X44.725 Y70.428 F7800.000 ; move to first infill point
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X37.679 Y70.428 E22.20408 F3600.000 ; infill
 G1 X37.521 Y69.864 E22.25462 ; infill
 G1 X44.670 Y69.864 E22.87134 ; infill
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X44.781 Y70.992 F7800.000 ; move to first infill point
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X37.951 Y70.992 E23.46058 F3600.000 ; infill
 G1 X38.296 Y71.556 E23.51762 ; infill
 G1 X43.020 Y71.556 E23.92523 ; infill
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X41.259 Y72.120 F7800.000 ; move to first infill point
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X38.673 Y72.120 E24.14825 F3600.000 ; infill
 G1 X39.076 Y72.684 E24.20804 ; infill
 G1 X39.497 Y72.684 E24.24432 ; infill
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X56.980 Y71.556 F7800.000 ; move to first infill point
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X61.704 Y71.556 E24.65194 F3600.000 ; infill
 G1 X61.327 Y72.120 E24.71051 ; infill
 G1 X58.741 Y72.120 E24.93353 ; infill
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X60.503 Y72.684 F7800.000 ; move to first infill point
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X60.924 Y72.684 E24.96981 F3600.000 ; infill
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X53.806 Y71.104 F7800.000 ; move to first infill point
 G1 X46.194 Y71.104 E25.59116 F2070.353 ; infill
 G1 X41.999 Y72.413 F7800.000 ; move to first infill point
@@ -15667,7 +15667,7 @@ G1 X45.349 Y70.052 E14.40276 F1836.497 ; infill
 G1 X38.436 Y70.770 F7800.000 ; move to first infill point
 G1 X37.955 Y70.770 E14.44586 F1836.497 ; infill
 G1 X40.701 Y70.574 F7800.000 ; move to first infill point
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X44.449 Y70.574 E14.75690 F3600.000 ; infill
 G1 X43.972 Y71.128 E14.81758 ; infill
 G1 X38.970 Y71.128 E15.23266 ; infill
@@ -15699,11 +15699,11 @@ G1 X44.545 Y78.332 E22.50156 ; infill
 G1 X48.106 Y78.332 E22.79703 ; infill
 G1 X47.463 Y78.886 E22.86746 ; infill
 G1 X46.570 Y78.886 E22.94157 ; infill
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X43.003 Y70.020 F7800.000 ; move to first infill point
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X42.431 Y70.020 E22.98896 F3600.000 ; infill
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X47.982 Y78.958 F7800.000 ; move to first infill point
 G1 X48.854 Y78.958 E23.06016 F1836.497 ; infill
 G1 X49.478 Y77.649 E23.17854 ; infill
@@ -15719,15 +15719,15 @@ G1 X46.237 Y72.413 E24.99767 ; infill
 G1 X46.238 Y71.104 E25.10453 ; infill
 G1 X53.762 Y71.104 E25.71876 ; infill
 G1 X55.551 Y70.574 F7800.000 ; move to first infill point
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X59.300 Y70.574 E26.03010 F3600.000 ; infill
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X57.569 Y70.020 F7800.000 ; move to first infill point
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X56.997 Y70.020 E26.07753 F3600.000 ; infill
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X56.028 Y71.129 F7800.000 ; move to first infill point
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X61.032 Y71.129 E26.49304 F3600.000 ; infill
 G1 X60.925 Y71.683 E26.53992 ; infill
 G1 X53.947 Y71.683 E27.11942 ; infill
@@ -15757,7 +15757,7 @@ G1 X55.435 Y78.335 E33.44444 ; infill
 G1 X51.897 Y78.335 E33.73826 ; infill
 G1 X52.540 Y78.889 E33.80876 ; infill
 G1 X53.461 Y78.889 E33.88526 ; infill
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 E32.88526 F1800.00000 ; retract
 G92 E0 ; reset extrusion distance
 G1 Z12.650 F7800.000 ; move to next layer (41)
@@ -16529,7 +16529,7 @@ G1 E4.63897 F1800.00000 ; retract
 G92 E0 ; reset extrusion distance
 G1 X45.831 Y68.150 F7800.000 ; move to first infill point
 G1 E1.00000 F1800.00000 ; unretract
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X45.298 Y68.150 E1.04954 F3600.000 ; infill
 G1 X45.529 Y68.734 E1.10787 ; infill
 G1 X49.290 Y68.734 E1.45740 ; infill
@@ -16559,9 +16559,9 @@ G1 X49.168 Y75.736 E7.80062 ; infill
 G1 X50.832 Y75.736 E7.95535 ; infill
 G1 X50.195 Y76.319 E8.03569 ; infill
 G1 X49.805 Y76.319 E8.07187 ; infill
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X50.279 Y70.484 F7800.000 ; move to first infill point
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X53.810 Y70.484 E8.40003 F3600.000 ; infill
 G1 X53.965 Y69.901 E8.45615 ; infill
 G1 X50.434 Y69.901 E8.78434 ; infill
@@ -16569,11 +16569,11 @@ G1 X50.572 Y69.317 E8.84008 ; infill
 G1 X54.218 Y69.317 E9.17894 ; infill
 G1 X54.471 Y68.734 E9.23805 ; infill
 G1 X50.710 Y68.734 E9.58758 ; infill
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X54.169 Y68.150 F7800.000 ; move to first infill point
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X54.702 Y68.150 E9.63712 F3600.000 ; infill
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X50.784 Y65.868 F7800.000 ; move to first infill point
 G1 X49.216 Y65.868 E9.76515 F1760.098 ; infill
 G1 X49.192 Y67.177 E9.87202 ; infill
@@ -16619,17 +16619,17 @@ G1 X44.612 Y78.007 E20.93577 ; infill
 G1 X47.073 Y78.681 F7800.000 ; move to first infill point
 G1 X47.733 Y78.681 E20.99121 F1760.098 ; infill
 G1 X48.298 Y78.725 F7800.000 ; move to first infill point
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X49.429 Y78.725 E21.13099 F3600.000 ; infill
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X50.196 Y77.395 F7800.000 ; move to first infill point
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X49.804 Y77.395 E21.17935 F3600.000 ; infill
 G1 X49.033 Y78.060 E21.30530 ; infill
 G1 X50.967 Y78.060 E21.54445 ; infill
 G1 X50.572 Y78.725 E21.64012 ; infill
 G1 X51.702 Y78.725 E21.77985 ; infill
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X52.582 Y78.791 F7800.000 ; move to first infill point
 G1 X53.224 Y78.791 E21.83427 F1760.098 ; infill
 G1 X55.267 Y78.111 F7800.000 ; move to first infill point
@@ -19423,15 +19423,15 @@ G1 X38.839 Y69.097 E9.33354 ; infill
 G1 X39.334 Y68.909 E9.35301 ; infill
 G1 X40.215 Y68.760 E9.38591 ; infill
 G1 X42.871 Y68.793 F7800.000 ; move to first infill point
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X42.871 Y69.177 E9.41989 F3600.000 ; infill
 G1 X43.442 Y69.949 E9.50467 ; infill
 G1 X43.442 Y68.550 E9.62829 ; infill
 G1 X44.012 Y68.355 E9.68159 ; infill
 G1 X44.012 Y71.703 E9.97758 ; infill
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X44.582 Y73.341 F7800.000 ; move to first infill point
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X44.582 Y68.231 E10.42927 F3600.000 ; infill
 G1 X45.152 Y68.120 E10.48063 ; infill
 G1 X45.152 Y73.903 E10.99181 ; infill
@@ -19445,9 +19445,9 @@ G1 X47.434 Y68.086 E12.99868 ; infill
 G1 X47.434 Y75.519 E13.65578 ; infill
 G1 X48.004 Y75.827 E13.71305 ; infill
 G1 X48.004 Y68.067 E14.39902 ; infill
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X48.574 Y68.259 F7800.000 ; move to first infill point
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X48.574 Y76.051 E15.08782 F3600.000 ; infill
 G1 X49.145 Y76.205 E15.14003 ; infill
 G1 X49.145 Y68.258 E15.84251 ; infill
@@ -19475,13 +19475,13 @@ G1 X55.418 Y68.231 E22.83617 ; infill
 G1 X55.418 Y73.341 E23.28786 ; infill
 G1 X55.988 Y72.685 E23.36468 ; infill
 G1 X55.988 Y68.355 E23.74749 ; infill
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X57.129 Y69.177 F7800.000 ; move to first infill point
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X57.129 Y68.793 E23.78147 F3600.000 ; infill
 G1 X56.558 Y68.550 E23.83627 ; infill
 G1 X56.558 Y69.949 E23.95988 ; infill
-M106 S255 ; enable fan
+; M106 S255 ; enable fan
 G1 X59.785 Y68.760 F7800.000 ; move to first infill point
 G1 X60.666 Y68.909 E23.99278 F600.000 ; infill
 G1 X61.161 Y69.097 E24.01225 ; infill
